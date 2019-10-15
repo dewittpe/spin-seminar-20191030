@@ -1,0 +1,14 @@
+language: r
+
+r:
+  - oldrel
+  - release
+  - devel
+
+install:
+  - Rscript -e 'install.packages("qwraps2", repos = "https://cran.rstudio.com")'
+
+script:
+  - make
+
+

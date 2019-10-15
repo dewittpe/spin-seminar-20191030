@@ -2,6 +2,8 @@
 
 **Department of Biostatistics and Informatics Seminar 30 October 2019**
 
+[![Build Status](https://travis-ci.com/dewittpe/spin-seminar-20191030.svg?branch=master)](https://travis-ci.com/dewittpe/spin-seminar-20191030)
+
 Building dynamic documents via literate programming is a critical part of
 responsible and reproducible science.
 
