@@ -6,7 +6,10 @@ r:
   - devel
 
 install:
-  - Rscript -e 'install.packages("qwraps2", repos = "https://cran.rstudio.com")'
+  - Rscript -e 'install.packages("devtools", repos = "https://cran.rstudio.com")'
+  - Rscript -e 'devtools::install_cran("qwraps2")'
+  - Rscript -e 'devtools::install_cran("rmarkdown")'
+  - Rscript -e 'devtools::install_cran("nycflights13")'
 
 script:
   - make
