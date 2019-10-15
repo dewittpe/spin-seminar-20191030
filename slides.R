@@ -35,6 +35,10 @@ knitr::opts_chunk$set(collapse = TRUE)
 #'
 #' * Simple Example: 00-flights.Rmd to 00-flights.html
 #'
+#' ## 00-flights.Rmd
+#'
+#' <iframe src="00-flights.Rmd.html"></iframe>
+#'
 #' ## Let's think about the paradigm
 #'
 #' * Analysis language is weaved *into* a markup language
