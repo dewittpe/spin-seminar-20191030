@@ -7,12 +7,12 @@
 #'  ioslides_presentation:
 #'    keep_md: false
 #'    widescreen: true
+#'    css: style.css
 #'    self_contained: true
 #'---
 # /*
 # other yaml things
 #    template: template.html
-#    css: style.css
 # */
 #'
 #+ label = "setup", include = FALSE
@@ -29,39 +29,49 @@ knitr::opts_chunk$set(collapse = TRUE)
 #'
 #' * These workflows are very good and should be used as much as possible.
 #'
-#'   1. Write a document in a markup language, e.g., LaTeX, markdown, ...
-#'   2. Weave into the markup language an analysis language, e.g., R
-#'   3. Create a deliverable dynamic and reproducible report
+#'     1. Write a document in a markup language, e.g., LaTeX, markdown, ...
+#'     2. Weave into the markup language an analysis language, e.g., R
+#'     3. Create a deliverable dynamic and reproducible report
 #'
 #' * Simple Example: 00-flights.Rmd to 00-flights.html
 #'
-#' ## 00-flights.Rmd
+#' ## Input: 00-flights.Rmd &#8594; Output: 00-flights.html
 #'
-#' <iframe src="00-flights.Rmd.html"></iframe>
+#' <div class="box">
+#' <iframe class="example" src="00-flights.Rmd.html"></iframe>
+#' </div>
+#' <div class="box">
+#' <iframe class="example" src="00-flights.html"></iframe>
+#' </div>
+#'
 #'
 #' ## Let's think about the paradigm
 #'
-#' * Analysis language is weaved *into* a markup language
+#' * Dynamic Document:
+#'     * implicit documentation, limit transcription errors, ...
+#'     * Analysis language is weaved *into* a markup language
+#'     * The markup language is the *primary* language for the file
 #'
-#' * The markup language is the *primary* language for the file
+#' * I am a data analyst:
 #'
-#' * I am a coder:
-#'
-#'   * My primary language is the analysis language
-#'   * The markup language is for extremely detailed comments.
+#'     * My primary language is the analysis language
+#'     * The markup language is for extremely detailed comments.
 #'
 #' * What happens if you tried: `source("00-fligths.Rmd")`?
 #'
 #' ## knitr::spin - Reverse the paradigm
 #'
-#' * `knitr::spin`
+#' * `knitr::spin` <br> https://yihui.name/knitr/demo/stitch/
 #'
-#'   * R is the primary language
-#'   * A markup language is the guest language
+#'     * R is the primary language
+#'     * A markup language is the guest language
+#'
+#' * Workflow:  .R &#8594; .Rmd &#8594; .md &#8594; .html <br>
+#' That is,<br> "*spin* .R to .R(md|nw), then *knit* to .(md|tex), and then build
+#' .(docx|html|pdf)"
 #'
 #' * Example: 01-flights.R
 #'
-#' * Workflow:  .R --> .Rmd --> .md --> .html
 #'
 #' ## knitr::spin | Benefits over knitr::knit
 #'
@@ -112,10 +122,10 @@ knitr::opts_chunk$set(collapse = TRUE)
 #' # Thank you
 #'
 #' * Slides and examples from this talk are available at
-#' https://github.com/dewittpe/drug-20190423
+#' https://github.com/dewittpe/spin-seminar-20191030
 #'
-#' * ASA COWY Meeting on Friday the 26th
-#'
-#' * Future Speakers and Topics?
+#' * <img width=150px style="padding: 0 15px; float: left;" src="drug-hex.jpeg"></img>
+#' Want to meet other R Users from academics and industry?
+#' Come to a Denver R Users Group Meetup.  https://www.meetup.com/DenverRUG/
 #'
 # /* end of file */
