@@ -126,6 +126,8 @@ knitr::spin(hair = "01-flights.R", knit = FALSE)
 #'
 #' * Example 02-flights-with-yaml.R
 #'
+#' <iframe src="02-flights/02-flights-with-yaml.R.html"></iframe>
+#'
 #' # knitr::spin -- Part III: An Advanced Use
 #'
 #' ## knitr::spin | Conditional Evaluation

@@ -16,6 +16,7 @@ slides.Rmd : slides.R
 	R --quiet --vanilla -e "knitr::spin('$<', knit = FALSE)"
 
 slides.html : slides.Rmd style.css 00-flights.Rmd.html 00-flights.html 01-flights.R.html 01-flights.Rmd.html syntax.R.html syntax.Rmd.html syntax.Rnw.html
+	$(MAKE) -C 02-flights
 	R --quiet --vanilla -e "rmarkdown::render('$<')"
 
 00-flights.Rmd.html : 00-flights.Rmd
