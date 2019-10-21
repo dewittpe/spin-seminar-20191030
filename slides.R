@@ -48,16 +48,18 @@ knitr::opts_chunk$set(collapse = TRUE)
 #' ## Let's think about the paradigm
 #'
 #' * Dynamic Document:
-#'     * implicit documentation, limit transcription errors, ...
-#'     * Analysis language is weaved *into* a markup language
-#'     * The markup language is the *primary* language for the file
+#'     * Implicit documentation, limit transcription errors, ...
+#'     * The **_markup language_** is the **_primary_** language for the file
+#'     * The analysis language is weaved *into* a markup language
 #'
 #' * I am a data analyst:
 #'
-#'     * My primary language is the analysis language
-#'     * The markup language is for extremely detailed comments.
+#'     * The **_analysis language_** is my **_primary_** language
+#'     * The markup language is for extremely detailed comments
 #'
-#' * What happens if you tried: `source("00-fligths.Rmd")`?
+#' * What happens if you try: `source("00-fligths.Rmd")`?
+print(try(source("00-flights.Rmd"), silent = TRUE))
+
 #'
 #' ## knitr::spin - Reverse the paradigm
 #'
@@ -66,11 +68,19 @@ knitr::opts_chunk$set(collapse = TRUE)
 #'     * R is the primary language
 #'     * A markup language is the guest language
 #'
-#' * Workflow:  .R &#8594; .Rmd &#8594; .md &#8594; .html <br>
-#' That is,<br> "*spin* .R to .R(md|nw), then *knit* to .(md|tex), and then build
-#' .(docx|html|pdf)"
+#' * Workflow:  .R &#8594; .Rmd &#8594; .md &#8594; .html <br> <br>
+#' That is,
+#'
+#'     1. *spin* .R to .R(md|nw),
+#'     2. *knit* to .(md|tex),
+#'     3. and then build .(docx|html|pdf) via pandoc
 #'
 #' * Example: 01-flights.R
+#'
+#' ## 01-flights.R &#8594; 01-flights.Rmd
+#+ label = 'spin-flights'
+knitr::spin(hair = "01-flights.R", knit = FALSE)
+
 #'
 #'
 #' ## knitr::spin | Benefits over knitr::knit

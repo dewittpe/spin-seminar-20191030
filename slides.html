@@ -143,18 +143,25 @@ slide:not(.current) .plotly.html-widget{
 <li>Dynamic Document:
 
 <ul>
-<li>implicit documentation, limit transcription errors, &#8230;</li>
-<li>Analysis language is weaved <em>into</em> a markup language</li>
-<li>The markup language is the <em>primary</em> language for the file</li>
+<li>Implicit documentation, limit transcription errors, &#8230;</li>
+<li>The <strong><em>markup language</em></strong> is the <strong><em>primary</em></strong> language for the file</li>
+<li>The analysis language is weaved <em>into</em> a markup language</li>
 </ul></li>
 <li><p>I am a data analyst:</p>
 
 <ul>
-<li>My primary language is the analysis language</li>
-<li>The markup language is for extremely detailed comments.</li>
+<li>The <strong><em>analysis language</em></strong> is my <strong><em>primary</em></strong> language</li>
+<li>The markup language is for extremely detailed comments</li>
 </ul></li>
-<li><p>What happens if you tried: <code>source(&quot;00-fligths.Rmd&quot;)</code>?</p></li>
+<li><p>What happens if you try: <code>source(&quot;00-fligths.Rmd&quot;)</code>?</p></li>
 </ul>
+
+<pre class = 'prettyprint lang-r'>print(try(source(&quot;00-flights.Rmd&quot;), silent = TRUE))
+## [1] &quot;Error in source(\&quot;00-flights.Rmd\&quot;) : \n  attempt to use zero-length variable name\n&quot;
+## attr(,&quot;class&quot;)
+## [1] &quot;try-error&quot;
+## attr(,&quot;condition&quot;)
+## &lt;simpleError in source(&quot;00-flights.Rmd&quot;): attempt to use zero-length variable name&gt;</pre>
 
 </article></slide><slide class=""><hgroup><h2>knitr::spin - Reverse the paradigm</h2></hgroup><article  id="knitrspin---reverse-the-paradigm">
 
@@ -165,9 +172,20 @@ slide:not(.current) .plotly.html-widget{
 <li>R is the primary language</li>
 <li>A markup language is the guest language</li>
 </ul></li>
-<li><p>Workflow: .R → .Rmd → .md → .html <br> That is,<br> &quot;<em>spin</em> .R to .R(md|nw), then <em>knit</em> to .(md|tex), and then build .(docx|html|pdf)&quot;</p></li>
+<li><p>Workflow: .R → .Rmd → .md → .html <br> <br> That is,</p>
+
+<ol>
+<li><em>spin</em> .R to .R(md|nw),</li>
+<li><em>knit</em> to .(md|tex),</li>
+<li>and then build .(docx|html|pdf) via pandoc</li>
+</ol></li>
 <li><p>Example: 01-flights.R</p></li>
 </ul>
+
+</article></slide><slide class=""><hgroup><h2>01-flights.R → 01-flights.Rmd</h2></hgroup><article  id="flights.r-01-flights.rmd">
+
+<pre class = 'prettyprint lang-r'>knitr::spin(hair = &quot;01-flights.R&quot;, knit = FALSE)
+## [1] &quot;01-flights.Rmd&quot;</pre>
 
 </article></slide><slide class=""><hgroup><h2>knitr::spin </h2><h3> Benefits over knitr::knit</h3></hgroup><article  id="knitrspin-benefits-over-knitrknit">
 
