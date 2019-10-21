@@ -82,6 +82,20 @@ print(try(source("00-flights.Rmd"), silent = TRUE))
 knitr::spin(hair = "01-flights.R", knit = FALSE)
 
 #'
+#' ## 01-flights.R &#8594; 01-flights.Rmd
+#'
+#' <div class="box">
+#' <iframe class="example" src="01-flights.R.html"></iframe>
+#' </div>
+#' <div class="box">
+#' <iframe class="example" src="01-flights.Rmd.html"></iframe>
+#' </div>
+#'
+#' ## knitr::spin | Syntax
+#'
+#' | .Rmd | .Rnw | .R |
+#' |:-----|:-----|:---|
+#' |The markup language | The markup language | #' The markup language |
 #'
 #' ## knitr::spin | Benefits over knitr::knit
 #'

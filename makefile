@@ -15,7 +15,7 @@ all : .pkgs slides.html
 slides.Rmd : slides.R
 	R --quiet --vanilla -e "knitr::spin('$<', knit = FALSE)"
 
-slides.html : slides.Rmd 00-flights.Rmd.html 00-flights.html 01-flights.R
+slides.html : slides.Rmd 00-flights.Rmd.html 00-flights.html 01-flights.R 01-flights.R.html 01-flights.Rmd.html
 	R --quiet --vanilla -e "rmarkdown::render('$<')"
 
 00-flights.Rmd.html : 00-flights.Rmd
@@ -24,6 +24,15 @@ slides.html : slides.Rmd 00-flights.Rmd.html 00-flights.html 01-flights.R
 
 00-flights.html : 00-flights.Rmd
 	R --quiet --vanilla -e "rmarkdown::render('$<')"
+
+01-flights.R.html : 01-flights.R
+	nvim -c TOhtml -c wqa $<
+
+01-flights.Rmd : 01-flights.R
+	R --quiet --vanilla -e "knitr::spin('$<', knit = FALSE)"
+
+01-flights.Rmd.html : 01-flights.Rmd
+	nvim -c TOhtml -c wqa $<
 
 clean :
 	/bin/rm .pkgs
