@@ -9,7 +9,8 @@ all : .pkgs slides.html
 		-e "devtools::install_cran('ggplot2')"\
 		-e "devtools::install_cran('dplyr')"\
 		-e "devtools::install_cran('qwraps2')"\
-		-e "devtools::install_cran('nycflights13')"
+		-e "devtools::install_cran('nycflights13')"\
+		-e "devtools::install_bioc('BiocStyle')"
 	touch .pkgs
 
 slides.Rmd : slides.R
