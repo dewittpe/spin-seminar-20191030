@@ -89,7 +89,7 @@ slide:not(.current) .plotly.html-widget{
 
   </style>
 
-  <link href="data:text/css;charset=utf-8,%2Ebox%20%7B%20width%3A49%25%3B%20display%3Ainline%2Dblock%3B%20%7D%0A" rel="stylesheet" type="text/css" />
+  <link href="data:text/css;charset=utf-8,%2Ebox%20%7B%20width%3A49%25%3B%20display%3Ainline%2Dblock%3B%20%7D%0A%2Ebox3%20%7B%20width%3A32%25%3B%20display%3Ainline%2Dblock%3B%20%7D%0A" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -184,8 +184,7 @@ slide:not(.current) .plotly.html-widget{
 
 </article></slide><slide class=""><hgroup><h2>01-flights.R → 01-flights.Rmd</h2></hgroup><article  id="flights.r-01-flights.rmd">
 
-<pre class = 'prettyprint lang-r'>knitr::spin(hair = &quot;01-flights.R&quot;, knit = FALSE)
-## [1] &quot;01-flights.Rmd&quot;</pre>
+<pre class = 'prettyprint lang-r'>knitr::spin(hair = &quot;01-flights.R&quot;, knit = FALSE)</pre>
 
 </article></slide><slide class=""><hgroup><h2>01-flights.R → 01-flights.Rmd</h2></hgroup><article  id="flights.r-01-flights.rmd-1">
 
@@ -199,31 +198,39 @@ slide:not(.current) .plotly.html-widget{
 
 </iframe></div>
 
-</article></slide><slide class=""><hgroup><h2>knitr::spin </h2><h3> Syntax</h3></hgroup><article  id="knitrspin-syntax">
+</article></slide><slide class=""><hgroup><h2>Syntax: .Rmd vs .Rnw vs .R</h2></hgroup><article  id="syntax-.rmd-vs-.rnw-vs-.r">
 
-<table class = 'rmdtable'>
-<tr class="header">
-<th align="left">.Rmd</th>
-<th align="left">.Rnw</th>
-<th align="left">.R</th>
-</tr>
-<tr class="odd">
-<td align="left">The markup language</td>
-<td align="left">The markup language</td>
-<td align="left">#&#39; The markup language</td>
-</tr>
-</table>
+<div class="box3">
+<iframe class="example" src="syntax.Rmd.html">
+
+</iframe></div>
+
+<div class="box3">
+<iframe class="example" src="syntax.Rnw.html">
+
+</iframe></div>
+
+<div class="box3">
+<iframe class="example" src="syntax.R.html">
+
+</iframe></div>
 
 </article></slide><slide class=""><hgroup><h2>knitr::spin </h2><h3> Benefits over knitr::knit</h3></hgroup><article  id="knitrspin-benefits-over-knitrknit">
 
 <ul>
 <li><p>R scripts! These can be sourced by other scripts</p></li>
-<li>Multiple types of comments:</li>
+<li>Multiple types of comments:
+
+<ul>
 <li>Standard R comments</li>
-<li><p>Commented blocks omitted from resulting .Rmd</p></li>
-<li>My opinion:</li>
-<li>easier development work to write a .R than and .Rmd</li>
-<li><p>.Rmd is a redo of the original work done in through-away files such as &quot;eda.R&quot; and &quot;initial-analysis.R&quot;</p></li>
+<li>Commented blocks omitted from resulting .Rmd</li>
+</ul></li>
+<li>My opinion:
+
+<ul>
+<li>easier development work to write a .R than a .Rmd</li>
+<li>.Rmd is a redo of the original work done in through-away files such as &quot;eda.R&quot; and &quot;initial-analysis.R&quot;</li>
+</ul></li>
 </ul>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>knitr::spin &#8211; Part II: A Full Document</h2></hgroup><article  id="knitrspin----part-ii-a-full-document">

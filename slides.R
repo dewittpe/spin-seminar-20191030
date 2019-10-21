@@ -78,7 +78,7 @@ print(try(source("00-flights.Rmd"), silent = TRUE))
 #' * Example: 01-flights.R
 #'
 #' ## 01-flights.R &#8594; 01-flights.Rmd
-#+ label = 'spin-flights'
+#+ label = 'spin-flights', eval = FALSE
 knitr::spin(hair = "01-flights.R", knit = FALSE)
 
 #'
@@ -91,24 +91,30 @@ knitr::spin(hair = "01-flights.R", knit = FALSE)
 #' <iframe class="example" src="01-flights.Rmd.html"></iframe>
 #' </div>
 #'
-#' ## knitr::spin | Syntax
+#' ## Syntax: .Rmd vs .Rnw vs .R
 #'
-#' | .Rmd | .Rnw | .R |
-#' |:-----|:-----|:---|
-#' |The markup language | The markup language | #' The markup language |
+#' <div class="box3">
+#' <iframe class="example" src="syntax.Rmd.html"></iframe>
+#' </div>
+#' <div class="box3">
+#' <iframe class="example" src="syntax.Rnw.html"></iframe>
+#' </div>
+#' <div class="box3">
+#' <iframe class="example" src="syntax.R.html"></iframe>
+#' </div>
 #'
 #' ## knitr::spin | Benefits over knitr::knit
 #'
 #' * R scripts!  These can be sourced by other scripts
 #'
 #' * Multiple types of comments:
-#'   * Standard R comments
-#'   * Commented blocks omitted from resulting .Rmd
+#'     * Standard R comments
+#'     * Commented blocks omitted from resulting .Rmd
 #'
 #' * My opinion:
-#'   * easier development work to write a .R than and .Rmd
-#'   * .Rmd is a redo of the original work done in through-away files such as
-#'   "eda.R" and "initial-analysis.R"
+#'     * easier development work to write a .R than a .Rmd
+#'     * .Rmd is a redo of the original work done in through-away files such as
+#'     "eda.R" and "initial-analysis.R"
 #'
 #' # knitr::spin -- Part II:  A Full Document
 #'

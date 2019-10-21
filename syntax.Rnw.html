@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/Biostatistics/spin-seminar-20191030/syntax.Rnw.html</title>
+<meta name="Generator" content="Vim/8.0">
+<meta name="plugin-version" content="vim8.1_v1">
+<meta name="syntax" content="rnoweb">
+<meta name="settings" content="number_lines,use_css,no_foldcolumn,expand_tabs,line_ids,prevent_copy=">
+<meta name="colorscheme" content="none">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #ffffff; background-color: #000000; }
+body { font-family: monospace; color: #ffffff; background-color: #000000; }
+* { font-size: 1em; }
+.LineNr { color: #ffff00; }
+.Statement { color: #ffff00; }
+.Comment { color: #00ffff; }
+.Special { color: #ffd7d7; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  var lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr"> 1 </span>
+<span id="L2" class="LineNr"> 2 </span>Standard markup: this is the text
+<span id="L3" class="LineNr"> 3 </span>of the deliverable, the human
+<span id="L4" class="LineNr"> 4 </span>readable stuff.
+<span id="L5" class="LineNr"> 5 </span>
+<span id="L6" class="LineNr"> 6 </span><span class="Special">&lt;&lt;label = &quot;chunk1&quot;&gt;&gt;=</span>
+<span id="L7" class="LineNr"> 7 </span><span class="Comment"># r-code</span>
+<span id="L8" class="LineNr"> 8 </span><span class="Special">@</span>
+<span id="L9" class="LineNr"> 9 </span>
+<span id="L10" class="LineNr">10 </span>Inline code evaluation: The average
+<span id="L11" class="LineNr">11 </span>weight the cars in the mtcars data set
+<span id="L12" class="LineNr">12 </span>is <span class="Statement">\Sexpr</span><span class="Special">{</span>r mean(mtcars<span class="Special">[[</span>&quot;wt&quot;<span class="Special">]]</span>) * 1000<span class="Special">}</span>
+<span id="L13" class="LineNr">13 </span>pounds.
+<span id="L14" class="LineNr">14 </span>
+<span id="L15" class="LineNr">15 </span><span class="Comment">% comments</span>
+<span id="L16" class="LineNr">16 </span><span class="Comment">% Standard LaTeX comments, in the .Rnw,</span>
+<span id="L17" class="LineNr">17 </span><span class="Comment">% but omitted from the .pdf</span>
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
