@@ -4,12 +4,16 @@ of the deliverable, the human
 readable stuff.
 
 ```{r, label = 'chunk1'}
-# r-code
+fit <- lm(mpg ~ wt, data = mtcars)
 ```
 
 Inline code evaluation: The average
 weight the cars in the mtcars data set
 is `r mean(mtcars[["wt"]]) * 1000`
-pounds.
-
+pounds. The expected mpg for the
+cars in the mtcar data set
+decreases by `r {{ abs(coef(fit)[1])`
+miles per gallon for every
+additional 1,000 lbs of
+weight.
 

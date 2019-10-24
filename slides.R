@@ -24,8 +24,8 @@ knitr::opts_chunk$set(collapse = TRUE)
 #' ## Dynamic Documents
 #'
 #' * Common Workflows:
-#'   * .Rnw --> .tex --> .pdf
-#'   * .Rmd --> .(md|tex) --> .(html|pdf|docx)
+#'     * .Rnw --> .tex --> .pdf
+#'     * .Rmd --> .(md|tex) --> .(html|pdf|docx)
 #'
 #' * These workflows are very good and should be used as much as possible.
 #'
@@ -35,15 +35,28 @@ knitr::opts_chunk$set(collapse = TRUE)
 #'
 #' * Simple Example: 00-flights.Rmd to 00-flights.html
 #'
-#' ## Input: 00-flights.Rmd &#8594; Output: 00-flights.html
+#' ##
+#'
+#+ eval = FALSE
+rmarkdown::render(input = "00-flights.Rmd", output_format = "html_document")
+
 #'
 #' <div class="box">
-#' <iframe class="example" src="00-flights.Rmd.html"></iframe>
+#' <iframe src="00-flights.Rmd.html" style="height:500px;"></iframe>
 #' </div>
 #' <div class="box">
-#' <iframe class="example" src="00-flights.html"></iframe>
+#' <iframe class="example" src="00-flights.html" style="height:500px;"></iframe>
 #' </div>
 #'
+#' <div class='notes'>
+#'
+#' Notes: There are several things you need to highlight in this example
+#'
+#' 1. The include = FALSE option for some of the chunks.
+#' 1. The inline code.
+#' 1. The table.
+#'
+#' </div>
 #'
 #' ## Let's think about the paradigm
 #'
@@ -57,9 +70,10 @@ knitr::opts_chunk$set(collapse = TRUE)
 #'     * The **_analysis language_** is my **_primary_** language
 #'     * The markup language is for extremely detailed comments
 #'
-#' * What happens if you try: `source("00-fligths.Rmd")`?
-print(try(source("00-flights.Rmd"), silent = TRUE))
-
+#' * Can you re-use the code? Can you source a .Rmd file?
+#'```{r, error = TRUE}
+#'source("00-flights.Rmd")
+#'```
 #'
 #' ## knitr::spin - Reverse the paradigm
 #'
@@ -77,43 +91,49 @@ print(try(source("00-flights.Rmd"), silent = TRUE))
 #'
 #' * Example: 01-flights.R
 #'
-#' ## 01-flights.R &#8594; 01-flights.Rmd
+#' ##
+#'
 #+ label = 'spin-flights', eval = FALSE
 knitr::spin(hair = "01-flights.R", knit = FALSE)
+# [1] "01-flights.Rmd"
+rmarkdown::render(input = "01-flights.Rmd", output_format = "html_document")
 
 #'
-#' ## 01-flights.R &#8594; 01-flights.Rmd
-#'
 #' <div class="box">
-#' <iframe class="example" src="01-flights.R.html"></iframe>
+#' <iframe src="01-flights.R.html" style="height:445px;"></iframe>
 #' </div>
 #' <div class="box">
-#' <iframe class="example" src="01-flights.Rmd.html"></iframe>
+#' <iframe src="01-flights.Rmd.html" style="height:445px;"></iframe>
 #' </div>
 #'
-#' ## Syntax: .Rmd vs .Rnw vs .R
+#' ## Syntax
 #'
 #' <div class="box3">
-#' <iframe class="example" src="syntax.Rmd.html"></iframe>
+#' .Rmd
+#' <iframe src="syntax.Rmd.html" style="height:425px;"></iframe>
 #' </div>
 #' <div class="box3">
-#' <iframe class="example" src="syntax.Rnw.html"></iframe>
+#' .Rnw
+#' <iframe src="syntax.Rnw.html" style="height:425px;"></iframe>
 #' </div>
 #' <div class="box3">
-#' <iframe class="example" src="syntax.R.html"></iframe>
+#' .R
+#' <iframe src="syntax.R.html" style="height:425px;"></iframe>
 #' </div>
 #'
-#' ## knitr::spin | Benefits over knitr::knit
+#' ## knitr::spin | Benefits
 #'
-#' * R scripts!  These can be sourced by other scripts
+#' * R scripts!
+#'     * Can be sourced by other scripts
+#'     * Reuse your code!
 #'
 #' * Multiple types of comments:
 #'     * Standard R comments
-#'     * Commented blocks omitted from resulting .Rmd
+#'     * Commented blocks omitted from resulting .R(md|nw|html|.+)
 #'
 #' * My opinion:
 #'     * easier development work to write a .R than a .Rmd
-#'     * .Rmd is a redo of the original work done in through-away files such as
+#'     * .Rmd is a redo of the original work done in "sandbox" files such as
 #'     "eda.R" and "initial-analysis.R"
 #'
 #' # knitr::spin -- Part II:  A Full Document
@@ -124,9 +144,34 @@ knitr::spin(hair = "01-flights.R", knit = FALSE)
 #'
 #' * Just define the build process you want.
 #'
-#' * Example 02-flights-with-yaml.R
+#' * Example 02-flights-with-yaml.R to .html and .docx
 #'
-#' <iframe src="02-flights/02-flights-with-yaml.R.html"></iframe>
+#' ## The .R file
+#' <iframe src="02-flights/02-flights-with-yaml.R.html" style="height:400px;"></iframe>
+#'
+#+ eval = FALSE
+# /*
+try(
+# */
+knitr::spin(hair = "02-flights.R", knit = FALSE)
+# [1] "02-flights.Rmd"
+rmarkdown::render(input = "02-flights.Rmd", output_format = "all")
+# /*
+, silent = TRUE)
+# */
+#'
+#' ## The .html
+#'
+#' <iframe src="02-flights/02-flights-with-yaml.html"></iframe>
+#'
+#' ## The .docx
+#'
+#' <div class="box">
+#' <img src="02-flights/02-flights-with-yaml-0.png" width=100%></img>
+#' </div>
+#' <div class="box">
+#' <img src="02-flights/02-flights-with-yaml-1.png" width=100%></img>
+#' </div>
 #'
 #' # knitr::spin -- Part III: An Advanced Use
 #'
@@ -153,11 +198,15 @@ knitr::spin(hair = "01-flights.R", knit = FALSE)
 #'
 #' # Thank you
 #'
-#' * Slides and examples from this talk are available at
-#' https://github.com/dewittpe/spin-seminar-20191030
+#' * You are welcome to contact me with questions
+#'      * <peter.dewitt@cuanschutz.edu>
 #'
-#' * <img width=150px style="padding: 0 15px; float: left;" src="drug-hex.jpeg"></img>
+#' * Slides and examples from this talk are available at
+#'      * https://github.com/dewittpe/spin-seminar-20191030
+#'
+#' * <img width=150px style="padding: 0 15px; float: right;" src="drug-hex.jpeg"></img>
 #' Want to meet other R Users from academics and industry?
-#' Come to a Denver R Users Group Meetup.  https://www.meetup.com/DenverRUG/
+#' Come to a Denver R Users Group Meetup.
+#'      * https://www.meetup.com/DenverRUG/
 #'
 # /* end of file */
