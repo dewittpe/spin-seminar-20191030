@@ -5,6 +5,9 @@ r:
   - release
   - devel
 
+before_install:
+  - sudo apt-get -y install neovim
+
 install:
   - Rscript -e 'install.packages("devtools", repos = "https://cran.rstudio.com")'
   - Rscript -e 'devtools::install_cran("qwraps2")'
@@ -12,6 +15,7 @@ install:
   - Rscript -e 'devtools::install_cran("nycflights13")'
 
 script:
-  - make
+  - make clean
+  - make -B
 
 
