@@ -59,5 +59,5 @@ syntax.Rmd.html : syntax.Rmd
 	$(VIM) -c TOhtml -c wqa $<
 
 clean :
-	/bin/rm .pkgs
-	/bin/rm *.html
+	/bin/rm -f .pkgs
+	/bin/rm -f *.html
