@@ -8,6 +8,10 @@ r:
 before_install:
   - sudo apt-get -y install neovim
 
+addons:
+  apt:
+    update: true
+
 install:
   - Rscript -e 'install.packages("devtools", repos = "https://cran.rstudio.com")'
   - Rscript -e 'devtools::install_cran("qwraps2")'
