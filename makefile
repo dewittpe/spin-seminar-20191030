@@ -6,7 +6,7 @@ else
 	ifeq ($(shell which vim), /usr/bin/vim)
 		VIM ?= $(shell which vim)
   else
-	$(error "neigther neovim or vim are available")
+	$(error "neither neovim or vim are available")
 endif
 endif
 
