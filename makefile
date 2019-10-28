@@ -1,11 +1,13 @@
 CRAN = 'https://cran.rstudio.com'
 
-ifeq (, $(shell which nvim))
-	VIM := $(shell which nvim)
-else ifeq(, $(sheel which vim))
-	VIM := $(shell which vim)
+ifeq ($(shell which nvim), /usr/local/bin/nvim)
+	VIM ?= $(shell which nvim)
 else
+	ifeq ($(shell which vim), /usr/bin/vim)
+		VIM ?= $(shell which vim)
+  else
 	$(error "neigther neovim or vim are available")
+endif
 endif
 
 all : .pkgs slides.html
