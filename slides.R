@@ -173,28 +173,28 @@ rmarkdown::render(input = "02-flights.Rmd", output_format = "all")
 #' <img src="02-flights/02-flights-with-yaml-1.png" width=100%></img>
 #' </div>
 #'
-#' # knitr::spin -- Part III: An Advanced Use
+#' # knitr::spin -- Part III: Advanced Use
+#'
+#' ## knitr::spin | Child Documents
+#'
+#' Let's walk through an example
 #'
 #' ## knitr::spin | Conditional Evaluation
 #'
-#' * Build a R package with example data sets.
-#'   * data sets are build in the `data-raw` directory
-#'   * Provide details on the construction of the data set in a package vignette
+#' * You have one .R file.  It will be evaluated in two ways:
+#'     1. As an R script in working directory A
+#'     2. Spun to .Rmd and the Rmd will be evalauted as package vignette, or
+#'     other document, evaluated from wroking directory B.
 #'
-#' * knitr::spin, and little hacking, *with one file*, will let you:
+#' * Specific example: Building an R package "<pkg.name>"
+#'     1. The R script evaluates as a script in the data-raw directory
+#'     2. Spun to .Rmd for building a vignette
 #'
-#'   1. Build the data set and R documentation in the data-raw directory
-#'   dynamically.
-#'   2. Build a vignette for the end user to reference.
+#' What does the following do?
 #'
 #' ## knitr::spin | Conditional Evaluation
 #'
-#' * This example relies of softlinks
-#'   * Mac and Linux users you're cool.
-#'   * Windows users.... this will require a little effort
-#'
-#' * This example will illustrate conditional evaluation of code.
-#'
+#' <iframe src="03-conditional.R.html" style="height:200px;"></iframe>
 #'
 #' # Thank you
 #'

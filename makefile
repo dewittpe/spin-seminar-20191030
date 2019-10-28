@@ -16,7 +16,7 @@ all : .pkgs slides.html
 slides.Rmd : slides.R
 	R --quiet --vanilla -e "knitr::spin('$<', knit = FALSE)"
 
-slides.html : slides.Rmd style.css 00-flights.Rmd.html 00-flights.html 01-flights.R.html 01-flights.Rmd.html syntax.R.html syntax.Rmd.html syntax.Rnw.html
+slides.html : slides.Rmd style.css 00-flights.Rmd.html 00-flights.html 01-flights.R.html 01-flights.Rmd.html syntax.R.html syntax.Rmd.html syntax.Rnw.html 03-conditional.R.html
 	$(MAKE) -C 02-flights
 	R --quiet --vanilla -e "rmarkdown::render('$<')"
 
@@ -43,6 +43,9 @@ syntax.Rnw.html : syntax.Rnw
 	nvim -c TOhtml -c wqa $<
 
 syntax.Rmd.html : syntax.Rmd
+	nvim -c TOhtml -c wqa $<
+
+03-conditional.R.html : 03-conditional.R
 	nvim -c TOhtml -c wqa $<
 
 clean :
