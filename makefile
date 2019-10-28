@@ -1,5 +1,13 @@
 CRAN = 'https://cran.rstudio.com'
 
+ifeq (, $(shell which nvim))
+	VIM := $(shell which nvim)
+else ifeq(, $(sheel which vim))
+	VIM := $(shell which vim)
+else
+	$(error "neigther neovim or vim are available")
+endif
+
 all : .pkgs slides.html
 
 .pkgs :
@@ -21,32 +29,32 @@ slides.html : slides.Rmd style.css 00-flights.Rmd.html 00-flights.html 01-flight
 	R --quiet --vanilla -e "rmarkdown::render('$<')"
 
 00-flights.Rmd.html : 00-flights.Rmd
-	nvim --version
-	nvim -c TOhtml -c wqa $<
+	$(VIM) --version
+	$(VIM) -c TOhtml -c wqa $<
 
 00-flights.html : 00-flights.Rmd
 	R --quiet --vanilla -e "rmarkdown::render('$<')"
 
 01-flights.R.html : 01-flights.R
-	nvim -c TOhtml -c wqa $<
+	$(VIM) -c TOhtml -c wqa $<
 
 01-flights.Rmd : 01-flights.R
 	R --quiet --vanilla -e "knitr::spin('$<', knit = FALSE)"
 
 01-flights.Rmd.html : 01-flights.Rmd
-	nvim -c TOhtml -c wqa $<
+	$(VIM) -c TOhtml -c wqa $<
 
 syntax.R.html : syntax.R
-	nvim -c TOhtml -c wqa $<
+	$(VIM) -c TOhtml -c wqa $<
 
 syntax.Rnw.html : syntax.Rnw
-	nvim -c TOhtml -c wqa $<
+	$(VIM) -c TOhtml -c wqa $<
 
 syntax.Rmd.html : syntax.Rmd
-	nvim -c TOhtml -c wqa $<
+	$(VIM) -c TOhtml -c wqa $<
 
 03-conditional.R.html : 03-conditional.R
-	nvim -c TOhtml -c wqa $<
+	$(VIM) -c TOhtml -c wqa $<
 
 clean :
 	/bin/rm .pkgs
