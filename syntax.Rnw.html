@@ -4,20 +4,20 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>~/Biostatistics/spin-seminar-20191030/syntax.Rnw.html</title>
 <meta name="Generator" content="Vim/8.0">
-<meta name="plugin-version" content="vim7.4_v2">
+<meta name="plugin-version" content="vim8.1_v1">
 <meta name="syntax" content="rnoweb">
 <meta name="settings" content="number_lines,use_css,no_foldcolumn,expand_tabs,line_ids,prevent_copy=">
 <meta name="colorscheme" content="none">
 <style type="text/css">
 <!--
-pre { font-family: monospace; color: #000000; background-color: #ffffff; }
-body { font-family: monospace; color: #000000; background-color: #ffffff; }
+pre { font-family: monospace; color: #ffffff; background-color: #000000; }
+body { font-family: monospace; color: #ffffff; background-color: #000000; }
 * { font-size: 1em; }
-.Statement { color: #af5f00; }
-.LineNr { color: #af5f00; }
-.Comment { color: #0000c0; }
-.Special { color: #c000c0; }
-.Identifier { color: #008080; }
+.LineNr { color: #ffff00; }
+.Statement { color: #ffff00; }
+.Identifier { color: #00ffff; font-weight: bold; }
+.Comment { color: #00ffff; }
+.Special { color: #ffd7d7; }
 -->
 </style>
 
@@ -34,7 +34,7 @@ function JumpToLine()
   if (lineNum.indexOf('L') == -1) {
     lineNum = 'L'+lineNum;
   }
-  lineElem = document.getElementById(lineNum);
+  var lineElem = document.getElementById(lineNum);
   /* Always jump to new location even if the line was hidden inside a fold, or
    * we corrected the raw number to a line ID.
    */
