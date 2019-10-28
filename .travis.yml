@@ -8,6 +8,9 @@ r:
   - devel
 
 before_install:
+  - sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+  - sudo add-apt-repository ppa:newovim-ppa/stable
+  - sudo apt-key fingerprint 0EBFCD88
   - sudo apt-get -y update
   - sudo apt-get -y install neovim
 
